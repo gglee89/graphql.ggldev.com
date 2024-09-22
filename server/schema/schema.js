@@ -1,4 +1,11 @@
 const { gql } = require("apollo-server");
+const { projects, clients } = require("../dummyData");
+const {
+  GraphQLObjectType,
+  GraphQLID,
+  GraphQLString,
+  GraphQLSchema,
+} = require("graphql");
 
 exports.typeDefs = gql`
   type Query {
