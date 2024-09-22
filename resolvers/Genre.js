@@ -1,10 +1,12 @@
 exports.Genre = {
   courses: (parent, args, context) => {
-    const { courses, reviews } = context;
+    const db = context.db;
 
     const genreId = parent.id;
     const { filter } = args;
-    const genreCourses = courses.filter((course) => course.genreId === genreId);
+    const genreCourses = db.courses.filter(
+      (course) => course.genreId === genreId
+    );
 
     let filteredGenreCourses = genreCourses;
 

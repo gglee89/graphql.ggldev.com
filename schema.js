@@ -36,4 +36,33 @@ exports.typeDefs = gql`
     comment: String!
     rating: Int!
   }
+
+  type Mutation {
+    addGenre(input: AddGenreInput!): Genre!
+    addCourse(input: AddCourseInput!): Course!
+    addReview(input: AddReviewInput!): Review!
+    deleteGenre(id: ID!): Boolean!
+    deleteCourse(id: ID!): Boolean!
+    deleteReview(id: ID!): Boolean!
+  }
+
+  input AddGenreInput {
+    name: String!
+  }
+
+  input AddCourseInput {
+    name: String!
+    description: String!
+    price: Float!
+    discount: Boolean!
+    genreId: ID!
+  }
+
+  input AddReviewInput {
+    date: String!
+    title: String!
+    comment: String!
+    rating: Int!
+    courseId: ID!
+  }
 `;

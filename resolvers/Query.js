@@ -1,8 +1,8 @@
 exports.Query = {
   courses: (parent, args, context) => {
-    const { courses, reviews } = context;
+    const db = context.db;
 
-    let filteredCourses = courses;
+    let filteredCourses = db.courses;
     const { filter } = args;
 
     if (filter) {
@@ -14,7 +14,7 @@ exports.Query = {
         filteredCourses = filteredCourses.filter((course) => {
           let sum = 0;
           let numOfReviews = 0;
-          reviews.forEach((review) => {
+          db.reviews.forEach((review) => {
             if (review.courseId === course.id) {
               sum += review.rating;
               numOfReviews++;
@@ -28,17 +28,17 @@ exports.Query = {
     return filteredCourses;
   },
   course: (parent, args, context) => {
+    const db = context.db;
     const courseId = args.id;
-    const courses = context.courses;
-    const course = courses.find((course) => course.id === courseId);
+    const course = db.courses.find((course) => course.id === courseId);
     if (!course) return null;
     return course;
   },
-  genres: (parent, args, context) => context.genres,
+  genres: (parent, args, context) => context.db.genres,
   genre: (parent, args, context) => {
-    const genres = context.genres;
+    const db = context.db;
     const catId = args.catId;
-    const genre = genres.find((genre) => genre.id === catId);
+    const genre = db.genres.find((genre) => genre.id === catId);
     if (!genre) return null;
     return genre;
   },
