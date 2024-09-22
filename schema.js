@@ -7,8 +7,6 @@ exports.typeDefs = gql`
     genres: [Genre!]!
     genre(catId: ID!): Genre
     numOfCourses: Int
-    price: Float
-    isTrainer: Boolean
   }
 
   type Course {

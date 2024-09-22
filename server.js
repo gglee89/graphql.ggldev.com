@@ -12,5 +12,9 @@ const server = new ApolloServer({
     Genre,
     Course,
   },
+  context: {
+    courses,
+    genres,
+  },
 });
 server.listen().then(({ url }) => console.log(`Server is running at ${url}`));
