@@ -54,4 +54,31 @@ const courses = [
   },
 ];
 
-module.exports = { courses, genres };
+const reviews = [
+  {
+    id: "rev-01",
+    date: "2021-01-01",
+    title: "This is bad",
+    comment: "when i bought this it broke the computer",
+    rating: 1,
+    courseId: "book-06",
+  },
+  {
+    id: "rev-02",
+    date: "2021-01-01",
+    title: "This is terrible",
+    comment: "worst ever course",
+    rating: 1,
+    courseId: "book-07",
+  },
+  {
+    id: "rev-03",
+    date: "2021-01-01",
+    title: "Kind of okay",
+    comment: "okay, but i dont recommend it",
+    rating: 3,
+    courseId: "book-07",
+  },
+];
+
+module.exports = { courses, genres, reviews };

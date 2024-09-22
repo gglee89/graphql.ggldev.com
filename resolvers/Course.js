@@ -4,4 +4,9 @@ exports.Course = {
     const genreId = parent.genreId;
     return genres.find((genre) => genre.id === genreId);
   },
+  reviews: (parent, args, context) => {
+    const reviews = context.reviews;
+    const { id } = parent;
+    return reviews.filter((review) => review.courseId === id);
+  },
 };

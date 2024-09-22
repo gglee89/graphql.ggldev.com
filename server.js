@@ -1,6 +1,6 @@
 const { ApolloServer } = require("apollo-server");
 const { typeDefs } = require("./schema");
-const { courses, genres } = require("./database");
+const { courses, genres, reviews } = require("./database");
 const { Query } = require("./resolvers/Query");
 const { Course } = require("./resolvers/Course");
 const { Genre } = require("./resolvers/Genre");
@@ -15,6 +15,7 @@ const server = new ApolloServer({
   context: {
     courses,
     genres,
+    reviews,
   },
 });
 server.listen().then(({ url }) => console.log(`Server is running at ${url}`));
